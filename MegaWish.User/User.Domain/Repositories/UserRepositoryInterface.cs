@@ -3,6 +3,6 @@ using User.Domain.SeedWork.GenericRepositories;
 
 namespace User.Domain.Repositories;
 
-public interface IUserRepository: IInsertRepository<UserEntity>, IGetWhereRepository<UserEntity>
+public interface IUserRepository: IInsertRepository<UserEntity>, IGetWhereRepository<UserEntity>, IGetRepository<UserEntity>
 {
 }

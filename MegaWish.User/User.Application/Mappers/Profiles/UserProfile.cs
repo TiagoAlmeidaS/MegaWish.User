@@ -1,5 +1,6 @@
 using AutoMapper;
 using User.Application.UseCases.User.Command.AddUser;
+using User.Application.UseCases.User.Query.GetUser;
 using User.Domain.Entities;
 
 namespace User.Application.Mappers.Profiles;
@@ -13,6 +14,10 @@ public class UserProfile: Profile
             .ForMember(x => x.PhoneNumber, opt => opt.MapFrom(x => x.PhoneNumber))
             .ForMember(x => x.YearsOld , opt => opt.MapFrom(x => x.YearOld))
             .ForMember(x => x.Name, opt => opt.MapFrom(x => x.Name));
+
+        CreateMap<UserEntity, AddUserCommandResult>().ReverseMap();
         
+        CreateMap<UserEntity, GetUserResult>().ReverseMap();
+
     }
 }
