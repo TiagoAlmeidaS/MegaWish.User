@@ -46,6 +46,7 @@ public class UserRepositoryTests
         await _context.SaveChangesAsync();
 
         var users = await _repository.GetWhere(u => u.Name.Contains(fakerName), new CancellationToken());
+        
         Assert.Equal(2, users.Count);
     }
 }

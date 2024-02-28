@@ -8,9 +8,9 @@ public class AddUserCommand: IRequest<AddUserCommandResult>
     public string Email { get; set; }
     public int YearsOld { get; set; }
     public string CustomerDocument { get; set; }
-    public int PhoneNumber { get; set; }
+    public string PhoneNumber { get; set; }
     
-    public AddUserCommand(string name, string email, int yearsOld, string customerDocument, int phoneNumber)
+    public AddUserCommand(string name, string email, int yearsOld, string customerDocument, string phoneNumber)
     {
         Name = name;
         Email = email;
@@ -35,7 +35,7 @@ public class AddUserCommand: IRequest<AddUserCommandResult>
         if (string.IsNullOrEmpty(CustomerDocument))
             throw new ArgumentException("CustomerDocument is required");
         
-        if (PhoneNumber <= 0)
+        if (PhoneNumber.Length <= 6)
             throw new ArgumentException("PhoneNumber is required");
     }
 }
