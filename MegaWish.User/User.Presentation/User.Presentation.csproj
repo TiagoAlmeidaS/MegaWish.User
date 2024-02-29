@@ -28,6 +28,8 @@
 
     <ItemGroup>
       <ProjectReference Include="..\User.Application\User.Application.csproj" />
+      <ProjectReference Include="..\User.Infra.Data\User.Infra.Data.csproj" />
+      <ProjectReference Include="..\User.Infra.Service\User.Infra.Service.csproj" />
     </ItemGroup>
 
 </Project>
