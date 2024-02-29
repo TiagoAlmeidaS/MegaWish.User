@@ -13,11 +13,11 @@ public class AddUserCommandHandler(IUserRepository repository, IUnitOfWork unitO
     {
         try
         {
-            var user = mapper.Map<UserEntity>(request);
-            await repository.Insert(user, cancellationToken);
+            var userEntity = new UserEntity(request.Name, request.Email, request.YearsOld, request.CustomerDocument, request.PhoneNumber);
+            await repository.Insert(userEntity, cancellationToken);
             await unitOfWork.Commit(cancellationToken);
 
-            return new AddUserCommandResult(user.Id, user.Name, user.Email);
+            return new AddUserCommandResult(userEntity.Id, userEntity.Name, userEntity.Email);
         }
         catch (Exception e)
         {

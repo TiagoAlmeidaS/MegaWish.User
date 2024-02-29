@@ -13,4 +13,9 @@ public class UserRepository(UserDBContext _context): IUserRepository
 
     public async Task<IList<UserEntity>> GetWhere(Expression<Func<UserEntity, bool>> predicate, CancellationToken cancellationToken) 
         => await _userDb.AsNoTracking().Where(predicate).ToListAsync(cancellationToken);
+
+    public async Task<UserEntity> Get(Guid id, CancellationToken cancellationToken) => 
+        await _userDb.AsNoTracking().FirstOrDefaultAsync(e => e.Id == id, cancellationToken) ?? throw new Exception("User not found");
+    public async Task<UserEntity> Get(Guid? id, string? customerDocument, CancellationToken cancellationToken) => 
+        await _userDb.AsNoTracking().FirstOrDefaultAsync(e => e.Id == id || e.CustomerDocument == customerDocument, cancellationToken) ?? throw new Exception("User not found");
 }
