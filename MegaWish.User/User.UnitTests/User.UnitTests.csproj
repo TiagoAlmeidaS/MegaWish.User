@@ -21,6 +21,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\User.Infra.Data\User.Infra.Data.csproj" />
+      <ProjectReference Include="..\User.Infra.GRPC\User.Infra.GRPC.csproj" />
       <ProjectReference Include="..\User.Presentation\User.Presentation.csproj" />
     </ItemGroup>
 
